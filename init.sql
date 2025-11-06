@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS test (
+    id INT PRIMARY KEY
+);
+
+INSERT INTO test (id)
+VALUES (1);
