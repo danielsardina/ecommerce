@@ -10,10 +10,11 @@ if(isset($_POST["email"]) && isset($_POST["name"]) && isset($_POST["password"]))
 
     $checkEmail = $mysqli->query("SELECT email FROM users WHERE email = '$email'");
     if($checkEmail->num_rows > 0) {
-        //TODO: mostrar error
+        echo "Ya existe una cuenta con el mismo email";
     } else {
         $mysqli->query("INSERT INTO users (email, name, password) VALUES ('$name', '$email', '$password');");
         header("Location: index.php");
+        exit();
     }
 }
 
