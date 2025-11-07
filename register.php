@@ -6,7 +6,7 @@ require_once("bd.php");
 if(isset($_POST["email"]) && isset($_POST["name"]) && isset($_POST["password"])) {
     $email = $_POST["email"];
     $name = $_POST["name"];
-    $password = $POST["password"];
+    $password = password_hash($_POST["password"] ?? "", PASSWORD_DEFAULT);
 
     $checkEmail = $mysqli->query("SELECT email FROM users WHERE email = '$email'");
     if($checkEmail->num_rows > 0) {
