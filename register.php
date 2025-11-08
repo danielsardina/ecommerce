@@ -8,14 +8,25 @@ if(isset($_POST["email"]) && isset($_POST["name"]) && isset($_POST["password"]))
     $name = $_POST["name"];
     $password = password_hash($_POST["password"] ?? "", PASSWORD_DEFAULT);
 
-    $checkEmail = $mysqli->query("SELECT email FROM users WHERE email = '$email'");
+    $stmt = $mysqli->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email,);
+    $stmt->execute();
+    $checkEmail = $stmt->get_result();
+
     if($checkEmail->num_rows > 0) {
         echo "Ya existe una cuenta con el mismo email";
     } else {
-        $mysqli->query("INSERT INTO users (email, name, password) VALUES ('$name', '$email', '$password');");
-        header("Location: index.php");
-        exit();
+        $stmt = $mysqli->prepare("INSERT INTO users (email, name, password) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss",$email, $name, $password);
+
+        if($stmt->execute()) {
+            header("Location: index.php");
+            exit();
+        }else {
+            echo "error al registrar el usuario";
+        }
     }
+    $stmt->close();
 }
 
 ?>
