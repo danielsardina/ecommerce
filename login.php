@@ -5,7 +5,12 @@ if (isset($_POST["login"])) {
     $email = $_POST["email"];
     $password = $_POST["password"]; 
 
-    $resultado = $mysqli->query("SELECT * FROM users WHERE email='$email' ");
+    $stmt = $mysqli->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+
+
     if ($resultado->num_rows > 0) {
         $user = $resultado->fetch_assoc();
         if (password_verify($password, $user["password"])) {
@@ -16,6 +21,7 @@ if (isset($_POST["login"])) {
         }
     }
     $_SESSION['login_error'] = 'Contraseña o email incorrectos';
+    $stmt->close();
    
 }
 ?>
