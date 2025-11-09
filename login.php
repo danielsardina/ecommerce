@@ -36,23 +36,24 @@ if (isset($_POST["login"])) {
 </head>
 
 <body>
-    <div class="form-box" id="login-form">
-        <form action="login.php" method="post">
-            <h2>Login</h2>
-            
-            <?php if (isset($_SESSION['login_error'])): ?>
-                    <?php
-                    echo $_SESSION['login_error'];
-                    unset($_SESSION['login_error']); 
-                    ?>
-            <?php endif; ?>
+    <main>
+        <div class="form-box" id="login-form">
+            <form action="login.php" method="post">
+                <h2>Login</h2>
+                
+                <?php if (isset($_SESSION['login_error'])): ?>
+                        <?php
+                        echo $_SESSION['login_error'];
+                        unset($_SESSION['login_error']); 
+                        ?>
+                <?php endif; ?>
 
-            <input type="email" name="email" placeholder="Email" required 
-                   value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
-            <input type="password" name="password" placeholder="Password" required>
-            <button type="submit" name="login">Login</button>
-        </form>
-    </div>
+                <input type="email" name="email" placeholder="Email" required 
+                    value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit" name="login">Login</button>
+            </form>
+        </div>
+    </main>
 </body>
-
 </html>
