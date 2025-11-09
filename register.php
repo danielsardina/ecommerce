@@ -12,8 +12,10 @@ if(isset($_POST["email"]) && isset($_POST["name"]) && isset($_POST["password"]))
     $stmt->execute();
     $checkEmail = $stmt->get_result();
 
+    $error = "";
+
     if($checkEmail->num_rows > 0) {
-        echo "Ya existe una cuenta con el mismo email";
+            $error = "Ya existe una cuenta con el mismo email";
     } else {
         $stmt = $mysqli->prepare("INSERT INTO users (email, name, password) VALUES (?, ?, ?)");
         $stmt->bind_param("sss",$email, $name, $password);
@@ -22,7 +24,7 @@ if(isset($_POST["email"]) && isset($_POST["name"]) && isset($_POST["password"]))
             header("Location: index.php");
             exit();
         }else {
-            echo "error al registrar el usuario";
+            $error =  "error al registrar el usuario";
         }
     }
     $stmt->close();
@@ -42,6 +44,7 @@ if(isset($_POST["email"]) && isset($_POST["name"]) && isset($_POST["password"]))
     <main>
         <form action="register.php" method="post">
             <h2>Register</h2>
+            <?= !empty($error) ? $error : ""  ?>
             <input type="email" name="email" placeholder="Email" required>
             <input type="text" name="name" placeholder="Nombre" required>
             <input type="password" name="password" placeholder="Contraseña" required>
