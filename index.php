@@ -16,7 +16,7 @@
     <main>
         <h1>SS Pescados</h1>
 
-        <div>
+        <div class="productos">
             <?php
             $stmt = $mysqli->prepare("SELECT * FROM products ");
             $stmt->execute();
@@ -25,7 +25,13 @@
             if ($resultado->num_rows > 0) {
                 $productos = $resultado->fetch_all();
                 foreach ($productos as $producto) {
-                    echo "nombre: ".$producto[1]." - Precio: ".$producto[2]."<br>";
+                    //echo "nombre: ".$producto[1]." - Precio: ".$producto[2]."<br>";
+                    $html ="
+                    <div>
+                    <p>Nombre :$producto[1]</p>
+                    </div>
+                    ";
+                    echo $html;
                 }
             }
 
