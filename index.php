@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    <?php include_once("header.php") ?>
     <main>
         <h1>SS Pescados</h1>
     </main>
