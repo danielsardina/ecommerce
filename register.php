@@ -42,14 +42,16 @@ if(isset($_POST["email"]) && isset($_POST["name"]) && isset($_POST["password"]))
 </head>
 <body>
     <main>
-        <form action="register.php" method="post">
-            <h2>Register</h2>
-            <?= !empty($error) ? $error : ""  ?>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="text" name="name" placeholder="Nombre" required>
-            <input type="password" name="password" placeholder="Contraseña" required>
-            <input type="submit" name="register" value="Register">
-        </form>
+        <div class="form-box">
+            <form action="register.php" method="post">
+                <h2>Register</h2>
+                <?= !empty($error) ? $error : ""  ?>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="text" name="name" placeholder="Nombre" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <input type="submit" name="register" value="Register">
+            </form>
+        </div>
     </main>
 </body>
 </html>
