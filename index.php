@@ -28,13 +28,13 @@
                     $html ="
                     <div>
                     <p>Nombre :$producto[1]</p>
-                    <p>Precio :$producto[2]</p>
+                    <p>Precio :$producto[2]€</p>
+                    <p>Stock :$producto[3]</p>
                     </div>
                     ";
                     echo $html;
                 }
             }
-
             ?>
         </div>
 
