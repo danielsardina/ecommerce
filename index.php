@@ -27,6 +27,7 @@
                 foreach ($productos as $producto) {
                     $html ="
                     <div class='producto'>
+                    <img src='$producto[4]'/>
                     <p><b>Nombre</b>: $producto[1]</p>
                     <p><b>Precio</b>: $producto[2]€</p>
                     <p><b>Stock</b>: $producto[3]</p>

@@ -141,3 +141,8 @@ h1{
     background-color: white;
     box-shadow: 4px 4px 16px 4px var(--form-shadow-color);
 }
+img{
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
