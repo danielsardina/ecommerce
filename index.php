@@ -11,5 +11,6 @@
     <main>
         <h1>SS Pescados</h1>
     </main>
+    <?php include_once("footer.php") ?>
 </body>
 </html>
