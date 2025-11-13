@@ -1,3 +1,5 @@
+<?php require_once("auth_required.php") ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
