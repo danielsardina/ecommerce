@@ -25,16 +25,16 @@
             if ($resultado->num_rows > 0) {
                 $productos = $resultado->fetch_all();
                 foreach ($productos as $producto) {
-                    //echo "nombre: ".$producto[1]." - Precio: ".$producto[2]."<br>";
                     $html ="
-                    <div>
-                    <p>Nombre :$producto[1]</p>
+                    <div class='producto'>
+                    <p><b>Nombre</b>: $producto[1]</p>
+                    <p><b>Precio</b>: $producto[2]€</p>
+                    <p><b>Stock</b>: $producto[3]</p>
                     </div>
                     ";
                     echo $html;
                 }
             }
-
             ?>
         </div>
 
