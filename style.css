@@ -1,98 +1,106 @@
 :root {
-    --bg-primary: #d5ffcb;
-    --bg-secondary: #c4deff;
-    --primary: #729e8f;
-    --primary-light: #8bb89c;
-    --form-shadow-color: #00000022;
+  --bg-primary: #d5ffcb;
+  --bg-secondary: #c4deff;
+  --primary: #729e8f;
+  --primary-light: #8bb89c;
+  --form-shadow-color: #00000022;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-    background-image: linear-gradient(45deg, var(--bg-primary), var(--bg-secondary));
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(
+    45deg,
+    var(--bg-primary),
+    var(--bg-secondary)
+  );
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 32px;
-    border-radius: 16px;
-    background-color: transparent;
-    box-shadow: 8px 8px 32px 8px var(--form-shadow-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px;
+  border-radius: 16px;
+  background-color: transparent;
+  box-shadow: 8px 8px 32px 8px var(--form-shadow-color);
 }
 
-form h2{
-    color: var(--primary);
-    margin-bottom: 32px;
-    text-transform: uppercase;
+form h2 {
+  color: var(--primary);
+  margin-bottom: 32px;
+  text-transform: uppercase;
 }
 
-form input, form button {
-    margin:  16px;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 8px;
-    transition: all 0.2s;
+form input,
+form button {
+  margin: 16px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.2s;
 }
 
 form input {
-    border-width: 2px;
-    border-style: solid;
-    border-color: transparent;
-    color: var(--primary);
-    font-weight: bold;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
+  color: var(--primary);
+  font-weight: bold;
 }
 
 form input::placeholder {
-    color: var(--primary-light);
-    font-weight: normal;
+  color: var(--primary-light);
+  font-weight: normal;
 }
 
 form input:focus {
-    outline: none;
-    box-shadow: 0px 0px 8px var(--primary-light) inset;
+  outline: none;
+  box-shadow: 0px 0px 8px var(--primary-light) inset;
 }
 
-form button, form input[type="submit"] {
-    padding: 8px 32px;
-    background-color: var(--primary);
-    color: white;
-    font-weight: bold;
+form button,
+form input[type="submit"] {
+  padding: 8px 32px;
+  background-color: var(--primary);
+  color: white;
+  font-weight: bold;
 }
 
-form button:hover, form input[type="submit"]:hover  {
-    background-color: var(--primary-light);
+form button:hover,
+form input[type="submit"]:hover {
+  background-color: var(--primary-light);
 }
 
 main {
-    flex: 1;
-    margin: 32px;
+  flex: 1;
+  margin: 32px;
 }
 
-header, footer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-color: var(--primary-light);
-    padding: 32px;
+header,
+footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--primary-light);
+  padding: 32px;
 }
 
 header {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 footer {
-    justify-content: center;
+  justify-content: center;
 }
 
 a {
@@ -106,67 +114,84 @@ a {
   color: white;
   background-color: transparent;
   padding: 8px 16px;
-  transition: all 0.3s;  
+  transition: all 0.3s;
 }
 
 a:hover {
-    background-color: white;
-    color: var(--primary);
+  background-color: white;
+  color: var(--primary);
 }
 
-h1{
-    text-align: center;
+h1 {
+  text-align: center;
 }
 
-img{
-    width: 200px;
-    height: 200px;
-    object-fit: contain;
+img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
 }
 
 .form-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 }
 
-.productos{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
+.productos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.producto{
-    margin: 16px;
-    padding: 16px;
-    border: 2px solid var(--primary);
-    border-radius: 16px;
-    background-color: white;
-    box-shadow: 4px 4px 16px 4px var(--form-shadow-color);
+.producto {
+  margin: 16px;
+  padding: 16px;
+  border: 2px solid var(--primary);
+  border-radius: 16px;
+  background-color: white;
+  box-shadow: 4px 4px 16px 4px var(--form-shadow-color);
 }
 
 .user-info {
-    background-color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 4px 8px;
-    color: var(--primary);
-    font-weight: bold;
-    display: inline;
-    justify-self: center;
+  background-color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 4px 8px;
+  color: var(--primary);
+  font-weight: bold;
+  display: inline;
+  justify-self: center;
 }
 
-.user-info span{
-    font-weight: normal;
+.user-info span {
+  font-weight: normal;
 }
-svg{
-    display: inline;
-    position: absolute;
-    right: 9%;
-    top: 0.5%;
+svg {
+  display: inline;
+  position: absolute;
+  right: 9%;
+  top: 0.5%;
+}
+svg::before {
+  content: "1";
+}
+.carritoNum {
+  position: absolute;
+  right: 9%;
+  top: 0.5%;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
 }

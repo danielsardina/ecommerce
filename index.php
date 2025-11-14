@@ -24,6 +24,12 @@
             $stmt->bind_param("ds", $producto["price"], $user["email"]);
             $stmt->execute();
 
+            if(isset($_SESSION["number"])) {
+                $_SESSION["number"] += 1;
+            } else {
+                $_SESSION["number"] = 1;
+            }
+
             header("Location: index.php");
             exit();
         }
