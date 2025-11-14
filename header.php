@@ -15,6 +15,6 @@ if (isset($_SESSION["email"])) {
         <a href="logout.php">Logout</a>
     </nav>
     <div>
-        <?= "<p>" . $user['name'] . " : <span>" . $user["balance"] . "</span></p>" ?>
+        <?= "<p class='user-info'>" . $user['name'] . " : <span>" . $user["balance"] . "€</span></p>" ?>
     </div>
 </header>

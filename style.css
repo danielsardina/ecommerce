@@ -114,6 +114,16 @@ a:hover {
     color: var(--primary);
 }
 
+h1{
+    text-align: center;
+}
+
+img{
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
 .form-box {
     display: flex;
     flex-direction: column;
@@ -123,9 +133,6 @@ a:hover {
     height: 100vh;
 }
 
-h1{
-    text-align: center;
-}
 .productos{
     display: flex;
     flex-direction: row;
@@ -133,6 +140,7 @@ h1{
     align-items: center;
 
 }
+
 .producto{
     margin: 16px;
     padding: 16px;
@@ -141,8 +149,16 @@ h1{
     background-color: white;
     box-shadow: 4px 4px 16px 4px var(--form-shadow-color);
 }
-img{
-    width: 200px;
-    height: 200px;
-    object-fit: contain;
+
+.user-info {
+    background-color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 4px 8px;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.user-info span{
+    font-weight: normal;
 }
