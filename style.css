@@ -157,8 +157,16 @@ img{
     padding: 4px 8px;
     color: var(--primary);
     font-weight: bold;
+    display: inline;
+    justify-self: center;
 }
 
 .user-info span{
     font-weight: normal;
+}
+svg{
+    display: inline;
+    position: absolute;
+    right: 9%;
+    top: 0.5%;
 }
