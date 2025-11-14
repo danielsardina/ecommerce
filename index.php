@@ -15,7 +15,14 @@
         $resultado = $stmt->get_result();
         $producto = $resultado->fetch_assoc();
 
-        echo "<h1>" . $producto["name"] . "</h1>";
+        if($producto["stock"] >= 1) {
+            $stmt = $mysqli->prepare("UPDATE products SET stock = stock - 1 WHERE id = ?");
+            $stmt->bind_param("i", $producto["id"]);
+            $stmt->execute();
+
+            header("Location: index.php");
+            exit();
+        }
     }
 ?>
 
