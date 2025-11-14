@@ -1,5 +1,23 @@
-<?php require_once("bd.php") ?>
-<?php require_once("auth_required.php") ?>
+<?php 
+    require_once("auth_required.php");
+    require_once("bd.php");
+
+    if (isset($_SESSION["email"]) && isset($_POST["producto"])) {
+        $stmt = $mysqli->prepare("SELECT * FROM users WHERE email = ?");
+        $stmt->bind_param("s", $_SESSION["email"]);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+        $user = $resultado->fetch_assoc();
+
+        $stmt = $mysqli->prepare("SELECT * FROM products WHERE id = ?");
+        $stmt->bind_param("s", $_POST["producto"]);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+        $producto = $resultado->fetch_assoc();
+
+        echo "<h1>" . $producto["name"] . "</h1>";
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,10 +45,14 @@
                 foreach ($productos as $producto) {
                     $html ="
                     <div class='producto'>
+                    <form method='POST' action='index.php'>
                     <img src='$producto[4]'/>
                     <p><b>Nombre</b>: $producto[1]</p>
                     <p><b>Precio</b>: $producto[2]€</p>
                     <p><b>Stock</b>: $producto[3]</p>
+                    <input type='submit' value='Comprar'>
+                    <input type='hidden' name='producto' id='producto' value='$producto[0]'>
+                    </form>
                     </div>
                     ";
                     echo $html;
