@@ -15,9 +15,13 @@
         $resultado = $stmt->get_result();
         $producto = $resultado->fetch_assoc();
 
-        if($producto["stock"] >= 1) {
+        if($producto["stock"] >= 1 && $user["balance"] >= $producto["price"]) {
             $stmt = $mysqli->prepare("UPDATE products SET stock = stock - 1 WHERE id = ?");
             $stmt->bind_param("i", $producto["id"]);
+            $stmt->execute();
+
+            $stmt = $mysqli->prepare("UPDATE users SET balance = balance - ? WHERE email = ?");
+            $stmt->bind_param("ds", $producto["price"], $user["email"]);
             $stmt->execute();
 
             header("Location: index.php");
