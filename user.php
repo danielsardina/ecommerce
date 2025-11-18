@@ -5,8 +5,7 @@
         private $password;
         private $balance;
 
-        function __construct($email, $name, $password, $balance)
-        {
+        function __construct($email, $name, $password, $balance) {
             $this->email = $email;
             $this->name = $name;
             $this->password = $password;
